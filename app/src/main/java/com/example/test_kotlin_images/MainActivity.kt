@@ -8,10 +8,12 @@ import android.view.MotionEvent
 import android.view.View
 import android.widget.ImageButton
 import android.widget.Toast
+import com.example.test_kotlin_images.MainActivity.Companion
 import kotlin.math.abs
 
 class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener{
 
+    //gesture detector start
     lateinit var gestureDetector: GestureDetector
     var x2:Float = 0.0f
     var x1:Float = 0.0f
@@ -21,6 +23,7 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener{
     companion object{
         const val MIN_DISTANCE = 150
     }
+    //gesture detector end
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,16 +31,18 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener{
 
 
 
-        //button initiation
+        //Button allowing to jump to the messages_activity
         val messageButton = findViewById<ImageButton>(R.id.message_button)
         messageButton.setOnClickListener(View.OnClickListener {
 
             val intent = Intent(this, messages_activity::class.java)
             startActivity(intent)
         })
+
+        //gesture detector inside onCreate function
         gestureDetector = GestureDetector(this, this)
     }
-
+    //Left/Right detector functionality
     override fun onTouchEvent(event: MotionEvent?): Boolean {
 
         if (event != null) {
@@ -59,10 +64,13 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener{
                 val valueX:Float = x2-x1
                 if(abs(valueX) > MIN_DISTANCE)
                 {
+                    //Right swipe
                     if(x2 > x1)
                     {
                         Toast.makeText(this,"Right swipe", Toast.LENGTH_SHORT).show()
+
                     }
+                    //Left swipe
                     else
                     {
                         Toast.makeText(this, "Left swipe", Toast.LENGTH_SHORT).show()
