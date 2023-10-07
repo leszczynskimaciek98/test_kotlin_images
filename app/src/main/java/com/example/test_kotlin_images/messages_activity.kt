@@ -54,7 +54,7 @@ class messages_activity : AppCompatActivity(), GestureDetector.OnGestureListener
                     //Right swipe to the MainActivity
                     if(x2 > x1)
                     {
-                        Toast.makeText(this,"Right swipe", Toast.LENGTH_SHORT).show()
+                        //Toast.makeText(this,"Right swipe", Toast.LENGTH_SHORT).show()
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
 
@@ -62,7 +62,7 @@ class messages_activity : AppCompatActivity(), GestureDetector.OnGestureListener
                     //Left swipe
                     else
                     {
-                        Toast.makeText(this, "Left swipe", Toast.LENGTH_SHORT).show()
+                        //Toast.makeText(this, "Left swipe", Toast.LENGTH_SHORT).show()
                     }
                 }
 

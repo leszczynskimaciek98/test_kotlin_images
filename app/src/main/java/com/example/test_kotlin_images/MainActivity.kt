@@ -8,7 +8,6 @@ import android.view.MotionEvent
 import android.view.View
 import android.widget.ImageButton
 import android.widget.Toast
-import com.example.test_kotlin_images.MainActivity.Companion
 import kotlin.math.abs
 
 class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener{
@@ -29,8 +28,6 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener{
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-
         //Button allowing to jump to the messages_activity
         val messageButton = findViewById<ImageButton>(R.id.message_button)
         messageButton.setOnClickListener(View.OnClickListener {
@@ -40,7 +37,7 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener{
         })
 
         //gesture detector inside onCreate function
-        gestureDetector = GestureDetector(this, this)
+        this.gestureDetector = GestureDetector(this, this)
     }
     //Left/Right detector functionality
     override fun onTouchEvent(event: MotionEvent?): Boolean {
@@ -67,13 +64,15 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener{
                     //Right swipe
                     if(x2 > x1)
                     {
-                        Toast.makeText(this,"Right swipe", Toast.LENGTH_SHORT).show()
+                        //Toast.makeText(this,"Right swipe", Toast.LENGTH_SHORT).show()
 
                     }
                     //Left swipe
                     else
                     {
-                        Toast.makeText(this, "Left swipe", Toast.LENGTH_SHORT).show()
+                        //Toast.makeText(this, "Left swipe", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this, messages_activity::class.java)
+                        startActivity(intent)
                     }
                 }
 
