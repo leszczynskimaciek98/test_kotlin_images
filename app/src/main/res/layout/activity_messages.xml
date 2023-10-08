@@ -7,6 +7,22 @@
     android:background="@drawable/chat"
     tools:context=".messages_activity">
 
+    <EditText
+        android:id="@+id/write_message"
+        android:layout_width="229dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="667dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="4dp"
+        android:hint="@string/write_a_message"
+        android:inputType="text"
+        android:textColorHint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/add_media"
+        app:layout_constraintStart_toEndOf="@+id/add_emote_messages"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageButton
         android:id="@+id/add_media"
         android:layout_width="57dp"
